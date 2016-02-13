@@ -7,5 +7,5 @@ logging: TRUE
 load_libraries: TRUE
 libraries: log4r, reshape, plyr, ggplot2, stringr, lubridate
 as_factors: FALSE
-data_tables: FALSE
+data_tables: TRUE
 attach_internal_libraries: FALSE
