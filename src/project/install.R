@@ -14,5 +14,6 @@ install.packages(c(
   'gtools',
   'digest',
   'foreach',
-  'doParallel'
+  'doParallel',
+  'XML'
 ))

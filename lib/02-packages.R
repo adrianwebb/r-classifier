@@ -5,6 +5,7 @@ require('digest')
 require('foreach')
 require('doParallel')
 require('compiler')
+require('XML')
 
 #---
 
