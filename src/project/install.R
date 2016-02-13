@@ -11,12 +11,8 @@ install.packages(c(
   'stringr',
   'lubridate',
   'data.table',
-  'debug',
   'gtools',
   'digest',
-  'quantmod',
-  'PerformanceAnalytics',
-  'RColorBrewer',
   'foreach',
   'doParallel'
 ))
