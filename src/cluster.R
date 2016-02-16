@@ -12,12 +12,14 @@ enableJIT(3)
 #-------------------------------------------------------------------------------
 # Configuration
 
-report.file <- 'reports/cluster.txt'
+bucket.list <- c(100, 50, 10)
+data.name <- 'cluster'
 
 #-------------------------------------------------------------------------------
 # Begin
 
 Text.cluster(
-  notes[['note']],
-  report.file
+  as.character(notes[['note']]),
+  bucket.list = bucket.list,
+  data.name = data.name
 )
