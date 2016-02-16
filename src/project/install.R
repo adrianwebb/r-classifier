@@ -9,11 +9,19 @@ install.packages(c(
   'plyr',
   'ggplot2',
   'stringr',
+  'stringi',
   'lubridate',
   'data.table',
+  'proxy',
   'gtools',
   'digest',
   'foreach',
   'doParallel',
-  'XML'
+  'XML',
+  'tm',
+  'SnowballC',
+  'lsa',
+  'RWeka',
+  'wordcloud',
+  'topicmodels'
 ))
