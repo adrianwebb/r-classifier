@@ -25,8 +25,7 @@ local.Time <- function(time = NULL) {
   }
 }
 
-ORIGIN <- local.Time("1900-01-01")
-NOW    <- local.Time()
+NOW <- local.Time()
 
 #-------------------------------------------------------------------------------
 

@@ -3,7 +3,7 @@ data_loading: TRUE
 cache_loading: TRUE
 recursive_loading: TRUE
 munging: TRUE
-logging: TRUE
+logging: FALSE
 load_libraries: TRUE
 libraries: log4r, reshape, plyr, ggplot2, stringr, lubridate
 as_factors: FALSE

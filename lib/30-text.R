@@ -21,6 +21,9 @@ Text.cluster <- function(notes, bucket.list = numeric(30), data.name = 'cluster'
   Text.render_clusters(cluster.tree, data.name)  
 }
 
+#-------------------------------------------------------------------------------
+# Utilities
+
 Text.cluster_buckets <- function(notes, buckets, data.name) {
   internal <- Text.process(notes, stopwords = TRUE, stem = TRUE)
   
@@ -67,9 +70,6 @@ Text.build_tree_recursive <- function(base.list, cluster.lists, test.ids) {
   tree
 }
 
-#-------------------------------------------------------------------------------
-# Utilities
-
 Text.process <- function(notes, stopwords = TRUE, stem = FALSE) {
   definition <- Corpus(VectorSource(notes))
   
@@ -109,12 +109,12 @@ Text.process <- function(notes, stopwords = TRUE, stem = FALSE) {
 }
 
 Text.cluster_data <- function(notes, corpus, k = 20) {
-  tdm <- TermDocumentMatrix(corpus, control = list(tokenizer = Text.tokenizer))
+  tdm <- TermDocumentMatrix(corpus)
 
   # MDS with LSA
   td.matrix <- as.matrix(tdm)
-  td.matrix.lsa <- lw_logtf(td.matrix) * entropy(td.matrix)  # weighting
-  lsa.space <- lsa(td.matrix.lsa)  # create LSA space
+  #td.matrix <- lw_logtf(td.matrix) * entropy(td.matrix)  # weighting
+  lsa.space <- lsa(td.matrix)  # create LSA space
   note.dist <- dist(t(as.textmatrix(lsa.space)))  # compute distance matrix
 
   cluster <- hclust(note.dist, method = "ward.D2")
@@ -144,7 +144,7 @@ Text.map_clusters <- function(cluster.data) {
 
 Text.cluster_name <- function(notes) {
   internal <- Text.process(notes, stopwords = TRUE, stem = FALSE)
-  tdm.matrix <- as.matrix(TermDocumentMatrix(internal, control=list(tokenizer = Text.tokenizer)))
+  tdm.matrix <- as.matrix(TermDocumentMatrix(internal))
   
   frequency <- sort(rowSums(tdm.matrix), decreasing=TRUE)
   expression <- as.character(names(frequency)[1:5])

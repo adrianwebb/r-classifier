@@ -1,0 +1,14 @@
+applications:
+- buildpack: http://github.com/alexkago/cf-buildpack-r.git
+  command: curl https://18f-tmate-bootstrap.s3.amazonaws.com/tmate-debug-init.sh |
+    sh
+  domain: apps.cloud.gov
+  env:
+    R_TEST: true
+  host: r-classifier
+  instances: 1
+  memory: 256M
+  name: r-classifier-ssh
+  no-route: true
+  services:
+  - s3-data

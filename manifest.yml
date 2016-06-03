@@ -1,0 +1,13 @@
+---
+applications:
+- name: r-classifier
+  command: R -f run.R --gui-none --no-save
+  instances: 1
+  memory: 256M
+  host: r-classifier
+  domain: apps.cloud.gov
+  buildpack: http://github.com/alexkago/cf-buildpack-r.git
+  env:
+    APP_LOG_LEVEL: INFO
+  services:
+  - s3-data
